@@ -14,3 +14,11 @@ p{
     
 
 }
+.body-div{
+    height: 400px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 25px;
+    box-shadow: 2px 2px 1px 1px grey;
+    border: solid black 1px;
+}

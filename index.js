@@ -29,25 +29,9 @@ else{
 
 
 
-let computerPlay = ()=>{
-    
-    let random = Math.floor(Math.random()*10+1);
-console.log(random)
-    
-    if(random<=3){
-       return  "Rock"
-    }
-   if(random>4 && random<7){
-       return  "Paper"
-    }
-    else{
-    return "Scissors"
-       };
 
 
-       };
 
-const computerSelection = computerPlay();
 
 
 let reset = document.querySelector("#reset");
@@ -65,10 +49,32 @@ for (let i = 0; i < arr.length; i++) {
     const elem = arr[i];
     elem.onclick =  function(e){
         n++;
-        document.querySelector("#recupere").innerHTML = e.target.innerText;
+
+        let computerPlay = ()=>{
+    
+            let random = Math.floor(Math.random()*10);
+        console.log(random)
+            
+            if(random<=3){
+               return  "Rock"
+            }
+           if(random>3 && random<7){
+               return  "Paper"
+            }
+            else{
+            return "Scissors"
+               };
+        
+        
+               };
+
+         const computerSelection = computerPlay();
+        document.querySelector("#recupere").innerHTML = "player play: " + e.target.innerText;
         let nbre = playRounds(e.target.innerText, computerSelection);
         document.querySelector("#result").innerHTML += n+" : "+nbre + "<br>";
-        document.querySelector("#computer").innerHTML = computerSelection;
+        document.querySelector("#computer").innerHTML ="computer play :" + computerSelection;
+
+        
             
             console.log(n+": "+ nbre);
         console.log(e);
@@ -94,15 +100,18 @@ for (let i = 0; i < arr.length; i++) {
         }
         if(e.target && n==5 && m<g){
             console.log(n + " " + m +": "+ g);
-            console.log("Game over ! you lose")
+            console.log("Game over ! you lose");
+            document.getElementById("gameOver").innerHTML = "Game over! you lose";
         }
         if(e.target && n==5 && m>g){
             console.log(n + " " + m +": "+ g);
             console.log("Game over ! you win")
+            document.getElementById("gameOver").innerHTML = "Game over! you win";
         }
         if(e.target && n==5 && m==g && (b==1||b==3)){
             console.log(n + " " + m +": "+ g);
-            console.log("Game over !  eguality")
+            console.log("Game over !  eguality");
+            document.getElementById("gameOver").innerHTML = "Game over! equality";
         }
         if(n>5){
             document.getElementById("result").innerHTML = "Game over ! Reset! <br>";
@@ -118,6 +127,9 @@ for (let i = 0; i < arr.length; i++) {
 reset.onclick = function() {
     
     document.getElementById("result").innerHTML = "";
+    document.getElementById("gameOver").innerHTML = "";
+    document.getElementById("recupere").innerHTML = " player :";
+    document.getElementById("computer").innerHTML = "computer play :";
    n = 0;
    g = 0;
    b = 0;
