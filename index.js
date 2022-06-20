@@ -7,13 +7,13 @@ if (playSelection == computerSelection){
 return "you eguality ! repeat"
 }
 if (playSelection != computerSelection && computerSelection === "Scissors" && playSelection === "Rock"){
-return "you win ! Rock beat Scissors"
+return "you winned ! Rock beat Scissors"
 }
 if (playSelection != computerSelection && computerSelection === "Rock" && playSelection === "Scissors"){
     return "you lose ! Rock beat Scissors"   
 }
 if (playSelection != computerSelection && computerSelection === "Rock" && playSelection === "Paper"){
-    return "you win ! Paper beat Rock"
+    return "you winned ! Paper beat Rock"
 }
 if(playSelection != computerSelection && computerSelection === "Paper" && playSelection==="Rock"){
     return "you lose ! Paper beat Rock"
@@ -22,7 +22,7 @@ if(playSelection != computerSelection && computerSelection === "Scissors" && pla
         return "you lose ! Scissors beat Paper"
 }
 else{
-    return "you win ! Scissors beat Paper"
+    return "you winned ! Scissors beat Paper"
 }
 
 };
@@ -114,7 +114,7 @@ for (let i = 0; i < arr.length; i++) {
             document.getElementById("gameOver").innerHTML = "Game over! equality";
         }
         if(n>5){
-            document.getElementById("result").innerHTML = "Game over ! Reset! <br>";
+            document.getElementById("result").innerHTML = "You must Reset to play another round <br>";
             console.log("reset")
             
         }
